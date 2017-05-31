@@ -1,0 +1,44 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../Dissertate}
+%% \documentclass{../DissertatePrint}
+%% \usepackage{comment}
+%% \excludecomment{figure}
+%% \let\endfigure\relax
+
+\begin{document}
+
+\doublespacing
+
+\setcounter{chapter}{5}
+\chapter{Intuition vs. Reflection in Reasoning}
+\input{Intro}
+\input{Method}
+\input{Results1}
+\input{Results2}
+\input{Discussion}
+
+\begin{appendices}
+  %% \setcounter{secnumdepth}{0}
+  \appendixpage
+  \graphicspath{{./../Appendices/}}
+
+  \chapter{CRT Reasoning Problems from Experiment 6}\label{appendix:exp6_stimuli}
+  \input{./../Appendices/Exp6_stimuli}
+
+  \chapter{Individual differences in Experiment 6 time course analyses}
+  \label{appendix:exp6_participants}
+  \input{./../Appendices/Exp6_individual_diffs}
+
+  \chapter{Differences between problems in Experiment 6 time course analyses}
+  \label{appendix:exp6_items}
+  \input{./../Appendices/Exp6_by_item}
+
+\end{appendices}
+
+
+\bibliography{../references}
+\addcontentsline{toc}{chapter}{References}
+
+\end{document}

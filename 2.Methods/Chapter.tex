@@ -1,0 +1,46 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[]{../Dissertate} % twoside option?
+%% \documentclass[]{article}
+
+%% \usepackage{tocloft}
+
+%% \newcommand{\listasidename}{List of Comments}
+%% \newlistof{aside}{aside}{\listasidename}
+
+%% \let\oldaside\aside
+%% \renewcommand{\aside}[1]{%
+%%   \refstepcounter{aside}
+%%   \oldaside{#1}
+%%   %% \par\noindent\textbf{Aside \theaside. #1}
+%%   \addcontentsline{exp}{aside}
+%%                   {\protect\numberline{\thechapter.\theaside}#1}\par}
+
+
+
+\usepackage{listings}
+
+\doublespace
+
+\begin{document}
+
+
+\setcounter{chapter}{1}
+
+\chapter{Methods}
+\input{MouseTracking}
+\input{Statistics}
+
+\begin{appendices}
+  \appendixpage
+  \graphicspath{{./../Appendices/}}
+  \chapter{Classifying Cursor Trajectories}\label{appendix:reversals}
+  \input{./../Appendices/Reversals}
+\end{appendices}
+
+
+\bibliography{../references}
+\addcontentsline{toc}{chapter}{References}
+
+\end{document}

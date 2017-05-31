@@ -1,0 +1,71 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../Dissertate}
+\usepackage{dcolumn}
+\newcolumntype{P}{D{\%}{\%}{2}}
+
+% \usepackage{tocloft}
+% \newcommand{\listasides}{List of Comments}
+% \newlistof{aside}{as}{\listasides}
+
+% \renewcommand{\aside}[1]{
+%   \refstepcounter{aside}
+%   \textcolor{red}{[[#1]]}
+%   \addcontentsline{as}{aside}
+%   {\protect\numberline{\thechapter.\theaside}#1}\par}
+
+\begin{document}
+
+\doublespacing
+
+\setcounter{chapter}{3} % This chapter minus 1
+\chapter{Associative vs. Structured Knowledge in Induction}
+
+% \listasides
+
+\input{Intro}
+\input{Method1}
+\input{Results1}
+\input{Discussion1}
+\input{Method2}
+\input{Results2}
+\input{Discussion2}
+\input{GeneralDiscussion}
+
+\begin{appendices}
+  %% \setcounter{secnumdepth}{0}
+  %% \renewcommand\chaptername{Appendix}
+  %% \titleformat{\section}[block]{\null\vfill\hfill}{\thesection}{2em}{}[\vfill\aftergroup\clearpage]
+
+  \appendixpage
+  %% \chapter{Appendices}
+  \graphicspath{{./../Appendices/}}
+  
+  %% \chapter{Association ratings for stimuli used in Experiment 3}\label{appendix:exp3_stimuli}
+  \chapter{Stimuli used in Experiment 3}\label{appendix:exp3_stimuli}
+  %% \setcounter{chapter}{1}
+  %% \setcounter{table}{0}   
+  \input{./../Appendices/Exp3_stimuli}
+
+  \chapter{Association ratings for stimuli used in Experiment 3}\label{appendix:exp3_associations}
+  %% \setcounter{chapter}{2}
+  %% \setcounter{table}{0}
+  \input{./../Appendices/Exp3_associations}
+
+  \chapter{Post test performance for stimuli used in Experiment 3}\label{appendix:exp3_posttest}
+  \input{./../Appendices/Exp3_posttest}
+
+  \chapter{Stimuli used in Experiment 4}\label{appendix:exp4_stimuli}
+  %% \setcounter{chapter}{3}
+  %% \setcounter{table}{0}   
+  \input{./../Appendices/Exp4_stimuli}
+
+  \chapter{Post test performance for stimuli used in Experiment 4} \label{appendix:exp4_posttest}
+  \input{./../Appendices/Exp4_posttest}
+\end{appendices}
+
+\bibliography{../references}
+\addcontentsline{toc}{chapter}{References}
+
+\end{document}

@@ -1,0 +1,29 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../Dissertate}
+
+\begin{document}
+
+\doublespacing
+
+\chapter{Conflict in Reasoning}
+\input{Intro}
+\input{Representations}
+\input{DualProcesses}
+%% \input{Conflict}
+\input{Measurement}
+\input{Recap}
+
+\begin{appendices}
+  \appendixpage
+  \graphicspath{{./../Appendices/}}
+  \chapter{Continuous Attraction and Changes of Mind in Mouse Tracking Studies}\label{appendix:mouse-studies}
+  \input{./../Appendices/MouseStudies}
+\end{appendices}
+
+\bibliography{../references}
+\addcontentsline{toc}{chapter}{References}
+%% \bibliographystyle{apacite}
+
+\end{document}

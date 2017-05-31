@@ -1,0 +1,165 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{Dissertate}
+
+\begin{document}
+
+\linespread{1.4}
+%% \onehalfspacing
+%% \doublespacing
+
+% the front matter
+\input{frontmatter/personalize}
+\pagenumbering{roman}
+\input{frontmatter/personalize}
+\maketitle
+\copyrightpage
+\abstractpage
+
+\tableofcontents
+\phantomsection
+\addcontentsline{toc}{chapter}{Contents}
+
+% figure listing - required if you have any figures
+\listoffigures
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\newpage
+
+% table listing - required if you have any tables
+\listoftables
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\newpage
+
+\acknowledgments
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% include each chapter...
+\chapter{Conflict in Reasoning}
+\graphicspath{{1.Conflict/}}
+\input{1.Conflict/Intro}
+\input{1.Conflict/Representations}
+\input{1.Conflict/DualProcesses}
+\input{1.Conflict/Measurement}
+\input{1.Conflict/Recap}
+
+\chapter{Methods}
+\graphicspath{{2.Methods/}}
+\input{2.Methods/MouseTracking}
+\input{2.Methods/Statistics}
+
+\chapter{Perceptual Similarity vs. Conceptual Knowledge in Induction}
+\graphicspath{{3.Similarity/}}
+\input{3.Similarity/Intro}
+\input{3.Similarity/Method1}
+\input{3.Similarity/Results1}
+\input{3.Similarity/Discussion1}
+\input{3.Similarity/Method2}
+\input{3.Similarity/Results2}
+\input{3.Similarity/Discussion2}
+\input{3.Similarity/GeneralDiscussion}
+
+\chapter{Associative vs. Structured Knowledge in Induction}
+\graphicspath{{4.Associations/}}
+\input{4.Associations/Intro}
+\input{4.Associations/Method1}
+\input{4.Associations/Results1}
+\input{4.Associations/Discussion1}
+\input{4.Associations/Method2}
+\input{4.Associations/Results2}
+\input{4.Associations/Discussion2}
+\input{4.Associations/GeneralDiscussion}
+
+\chapter{Descriptions vs. Statistics in Reasoning}
+\graphicspath{{5.Baserate/}}
+\input{5.Baserate/Intro}
+\input{5.Baserate/Method}
+\input{5.Baserate/Results1}
+\input{5.Baserate/Results2}
+\input{5.Baserate/Results3}
+\input{5.Baserate/Results4}
+\input{5.Baserate/Discussion}
+
+\chapter{Intuition vs. Reflection in Reasoning}
+\graphicspath{{6.CRT/}}
+\input{6.CRT/Intro}
+\input{6.CRT/Method}
+\input{6.CRT/Results1}
+\input{6.CRT/Results2}
+\input{6.CRT/Discussion}
+
+\chapter{Summary, Discussion and Final Conclusions}
+\graphicspath{{7.Conclusions/}}
+\input{7.Conclusions/Recap}
+\input{7.Conclusions/Framework}
+\input{7.Conclusions/Knowledge}
+\input{7.Conclusions/DualProcess}
+\input{7.Conclusions/GeneralPoints}
+\input{7.Conclusions/Conclusions}
+
+\clearpage
+{\small\bibliography{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\let\cleardoublepage\clearpage
+\addcontentsline{toc}{chapter}{Appendices}
+
+\addtocontents{toc}{%
+  \begingroup
+  \let\protect\l@chapter\protect\l@section
+  \let\protect\l@section\protect\l@subsection
+}
+
+\begin{appendices}
+  \appendixpage
+  \graphicspath{{Appendices/}}
+  %% Chapter 1
+  
+  \chapter{Continuous Attraction and Changes of Mind in Mouse Tracking Studies}\label{appendix:mouse-studies}
+  
+  \input{Appendices/MouseStudies}
+
+  %% Chapter 2
+  \chapter{Classifying Cursor Trajectories}\label{appendix:reversals}
+  \input{Appendices/Reversals}
+  
+  %% Chapter 3
+  \chapter{Stimuli from Experiment 1}\label{appendix:exp1_stimuli}
+  \input{Appendices/Exp1_stimuli}
+  \chapter{Post test scores for stimuli used in Experiment 1} \label{appendix:exp1_posttest}
+  \input{Appendices/Exp1_posttest}
+
+  \chapter{Stimuli from Experiment 2}\label{appendix:exp2_stimuli}
+  \input{Appendices/Exp2_stimuli}
+  \chapter{Properties used in Experiment 2}\label{appendix:exp2_properties}
+  \input{Appendices/Exp2_properties}
+
+  %% Chapter 4
+  \chapter{Association ratings for stimuli used in Experiment 3}\label{appendix:exp3_associations}
+  \input{Appendices/Exp3_associations}
+  \chapter{Stimuli used in Experiment 3}\label{appendix:exp3_stimuli}
+  \input{Appendices/Exp3_stimuli}
+  \chapter{Post test performance for stimuli used in Experiment 3}\label{appendix:exp3_posttest}
+  \input{Appendices/Exp3_posttest}
+  \chapter{Stimuli used in Experiment 4}\label{appendix:exp4_stimuli}
+  \input{Appendices/Exp4_stimuli}
+  \chapter{Post test performance for stimuli used in Experiment 4} \label{appendix:exp4_posttest}
+  \input{Appendices/Exp4_posttest}
+
+  
+  %% Chapter 5
+  \chapter{Bayesian model priors from Experiment 5}\label{appendix:exp5_bayes}
+  \input{Appendices/Exp5_bayes}
+  
+  %% Chapter 6
+  \chapter{CRT Reasoning Problems from Experiment 6}\label{appendix:exp6_stimuli}
+  \input{Appendices/Exp6_stimuli}
+  
+\end{appendices}
+
+\end{document}

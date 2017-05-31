@@ -1,0 +1,441 @@
+
+\section{Measuring conflict}\label{measuring-conflict}
+
+%% Bit about behaviourism 
+Cognition is a black box.
+While recent technological advances have made it possible
+to know whether of not neurons in a given part of the brain,
+or under some circumstance even specific neurons, are firing,
+we remain some distance from being able to
+describe complex cognitive phenomena
+in terms of these underlying, observable, biological processes.
+Instead, experimental cognitive psychologists make us of an approach
+inherited from the Behaviourist tradition:
+we present our participants
+with experimentally controlled stimuli,
+and we record what occurs as a result,
+either in terms of overt responses,
+or more subtle measures which shine a light on underlying processes.
+This chapter serves as an introduction to the methods
+used in the later experimental chapters of this thesis.
+I will first review prior methods used in the study 
+of both reasoning, and conflict more broadly.
+There range from analyses of participants' discrete responses,
+to response latencies, to subtler paradigms which reveal
+something of underlying processes, such as fMRI and eye tracking.
+I then provide an overview of the mouse tracking paradigm
+central to this thesis, including a review of previous work,
+and technical details of the collection and analysis of
+mouse cursor data as done later in this thesis.
+I will also introduce a number of the statistical analyses
+used in the analyses reported later.
+
+
+\subsection{Responses}\label{responses}
+
+The basic experimental paradigm used by cognitive psychologists
+has changed little over the last 50 years:
+participants are presented with stimuli,
+ranging from a simple perceptual input
+to complex verbal problems,
+and asked to provide a discrete response,
+either verbally, numerically, or by pressing a button.
+Thus, most %% much? 
+psychological research rests on
+the analysis of only these single responses,
+collected after the process of interest has terminated.
+More complex designs,
+incorporating confidence ratings or list sorting,
+for instance, add some nuance to the analysis,
+but remain focused on the end product of the cognitive process.
+Collecting only this response in a single condition,
+or in simple experiments,
+it is not possible to monitor conflict directly,
+but such data can reveal what factors drive decisions.
+For instance, \citet[discussed in chap. 1]{Gelman1986} 
+presented children with a forced choice,
+asking them to generalise properties either
+between entities which belong to the same category,
+but look different,
+or between entities which are visually similar,
+but belong to different categories,
+in a \emph{triad task}.
+%% Include figure 
+By demonstrating that children overwhelmingly choose
+to generalise based on category membership,
+they concluded that category knowledge
+drives inductive inference in children.
+
+%% Proper experiment 
+
+True experiments, in which the factor of interest
+is manipulated between conditions,
+provide a better test of what influences final choices.
+\citet{Evans1983} asked participants to decide
+if presented syllogisms were valid or invalid,
+and manipulated if the arguments' conclusions
+were believable, or unbelievable.
+Finding that participants were more likely to class arguments
+with believable conclusions as valid,
+both for valid and invalid items,
+they concluded that belief and logic conflicted on the task
+(a conclusion they confirmed using protocol analysis, see below).
+Response data can also be combined with a range of
+information about individual differences between participants
+in correlational analyses.
+\citet{Stanovich1999,Stanovich2000,Stanovich2008}, for instance,
+showed that for a number of tasks in which
+intuition and logic are thought to conflict in different ways,
+the number of logically correct responses a participant produces
+can be variously predicted by their IQ,
+or by personality measures.
+
+However, terminal responses remain only an indirect indicator of conflict:
+it is impossible, for instance, to differentiate between
+a manipulation which elicits conflict between multiple processes,
+and one which merely changes the kind of processing
+which participants engage in.
+
+%% In a different domain, \textbf{T\&K?} asked participants to indicate 
+%% how likely indicate how likely a person was to be an engineer, 
+%% based on short description of them. 
+%% Crucially, they were told that the person had been randomly drawn 
+%% from a pool of engineers and lawyers, and that either 
+%% 70% of the pool were lawyers, or 70% were engineers. 
+%% Showing that participants' likelihood judgements 
+%% were unaffected by these \emph{base rates}, they concluded that 
+%% human judgement is overly reliant on information about a specific exemplar, 
+%% and demonstrates \emph{base rate neglect}. 
+
+\subsection{Response Latency}\label{response-latency}
+
+%% Response latency 
+
+With the modern ubiquity of computers,
+these discrete responses are increasingly accompanied by
+a measure of the \emph{response latency}, or time taken
+to provide a response.
+This \emph{chronometric} approach has a long history,
+particularly in the individual differences, or \emph{psychometrics} tradition 
+\citep[see][for a review]{Posner1978,Meyer1988}.
+Early such work \citep{Donders1868} sought to measure the time required
+to perform simple mental operations by assuming additive effects:
+if the time required to perform task A
+(i.e.~process visual input and press a button) was known,
+then the time taken by task B (i.e.~make an additional decision)
+could be inferred by recording the time taken to perform tasks A and B together,
+and subtracting the difference.
+This additive ``method of pure insertion'' was improved upon
+by subsequent approaches which acknowledge that components of a complex task
+are likely to interact in a non-linear fashion \citep{Hick1952, Sternberg1969, Cooper1973}.
+
+Response latencies have obvious advantages over simple responses
+in the detection of conflict during cognition.
+Although conflict may not affect the responses participants give,
+slower responses are indicative of greater difficulty
+in generating these responses,
+often as a result of the need to resolve or inhibit conflict.
+In the Stroop task \citep{Stroop1935},
+participants are asked to verbally identify the colour in which words are printed.
+Doing so may involve conflict when
+the words themselves are colour names
+and the printed word and ink colour differ:
+participants must inhibit an automatic tendency
+to read the colour name aloud
+in order to properly perform the task.
+%% \aside{Could be more concise here maybe}
+In non-clinical populations,
+error rates on this task are typically very low,
+but conflict, and individual differences in the ability to resolve this conflict,
+can be inferred by comparing response latencies
+for congruent and incongruent colour names.
+The same principle has been applied to forced choice tasks,
+including the Eriksen flanker task \citep{Eriksen1974},
+in which participants are required to respond
+on the basis of a centrally located probe,
+ignoring flanking stimuli on either side
+which may be congruent, incongruent, or neutral.
+Similarly, in the Simon task \citep{Simon1963},
+stimuli can be presented centrally on a display,
+or lateralised to either side.
+Responses with the right hand are slower
+to stimuli presented in the left visual field,
+and vice versa.
+
+%% Diffusion 
+One issue which arises in the analysis of response latencies
+is the relationship between response time and choices.
+On tasks in which more than one response is possible,
+and there is variance in the choices participants do make,
+there is often a \emph{speed-accuracy trade-off},
+with participants striking a balance between
+maximising speed, and thus sacrificing accuracy,
+or vice versa \citep{Garrett1922}.
+A popular solution to this problem has been to
+fit models of the underlying decision process
+which account for both the participants' choices
+and their corresponding response times.
+In \emph{sequential sampling models}
+%% \citet{Ratcliff1978,Ratcliff2008a,Milosavljevic2010,Smith2004,Busemeyer1993,Ratcliff2004},
+\citet{Ratcliff1978,Ratcliff2008a,Busemeyer1993},
+%% \aside{Too many refs here}
+decisions are modelled as a process of accumulating evidence over time.
+For instance, in the leaky competing accumulator model \citep{Usher2001},
+support for alternative choices is modelled analogous to
+the amount of liquid in a set of ``leaky'' containers,
+with greater evidence in favour of a choice
+corresponding to a faster inflow of liquid.
+A subset of sequential sampling models,
+known as \emph{diffusion models},
+include a further constraint that possible responses must compete:
+evidence in favour of one response
+is taken as evidence against the alternatives.
+For two-alternative choices,
+this model can be thought of in terms of
+a single moving point,
+which can move up towards one response,
+or down towards the alternative,
+%% over time (see Figure \citet{fig:diffusion}).
+a decision is made when the point
+crosses a threshold for either response,
+and models may allow for variability in the starting location of the point,
+the threshold for each response,
+and the rate of evidence accumulation in favour of each response.
+\aside{I can either shorten this section (on diffusion models),
+  or complete it with a figure.}
+
+% \begin{figure}
+%   \vspace{20pt}
+%   \centering
+%   \hspace*{-32pt}
+%   % \includegraphics[width=.3\paperwidth]{/home/eoin/GitHub/Thesis/Conflict/imgs/diffusion.jpg}
+%   \caption{A two-alternative diffusion model\label{fig:diffusion} }
+% \end{figure}
+
+
+The rate of evidence accumulation in such models
+is quantified by a single \emph{drift rate} parameter (\(v\)),
+such that positive values of \(v\) correspond to evidence for the upper response,
+and negative values to evidence favouring the lower response.
+Curiously, the notion of conflict is rarely made explicit in such models.
+A moderate positive \(v\) could equally be
+the product of weak evidence in favour of the upper response,
+or of conflicting evidence in favour of both responses,
+with greater support for the upper alternative.
+%% Need to be sure about this. 
+
+This has not prevented such models being used extensively in
+modelling performance on a number of conflict tasks \citep[see][]{Servant2014}.
+However, despite the strengths of recent modelling-based approaches
+in inferring underlying processes from responses latencies,
+the data upon which these models are based
+remain after-the-fact products of the processes we are interested in.
+Greater sensitivity still comes from a family of methods
+known as \emph{``process tracing''} which seek to monitor
+these cognitive processes as they happen.
+
+
+\subsection{Process Tracing}\label{process-tracing}
+
+
+Process tracing is a general term for a range of paradigms
+in which cognitive processes are recorded as they unfold.
+These paradigms range from straightforward methods
+such as protocol analysis, in which
+participants are asked to explicitly ``think aloud'' while performing a task,
+to measurement of neural and biological states, including fMRI and EEG,
+to recording of eye gaze in order to infer attention during cognition,
+and to mouse tracking, the method which will form the core of this thesis.
+
+Protocol analysis %% Cite Ranyard in PT handbook 
+provides an continuous measure of
+what participants explicitly believe is driving their decisions over time.
+\citet{Evans1983}, for instance, asked participants to think aloud
+while evaluating the logical validity of syllogisms
+which varied in the belivability of their conclusions.
+While their main analysis focused on the responses participants gave,
+they also analysed this verbal data,
+which corroborated their interpretation of the role of conclusion belivability
+in evaluating these arguments.
+%% \aside{This description could be better, or I could ignore
+%%   protocol analysis altogether.}
+However, the use of such self-report measures of internal mental states
+has been extensively criticised \citep[i.e.][]{Nisbett1977}, %% cite more 
+as true mental states are usually unavailable to conscious introspection.
+Beyond this, protocol analysis is a poor tool for studying conflict,
+in the sense defined above, but rather reveals experienced indecision.
+Other measures, however, provide more direct indications
+of true underlying processes.
+%% I should include some stuff of on protocol analysis in reasoning. 
+
+
+There has been a huge body of research, across many fields,
+on the neural and biological correlates of cognition and their measurement,
+which I can only briefly list here.
+Functional Magnetic Resonance Imaging (fMRI)
+is perhaps the best-known of these techniques,
+and reveals the firing rate of populations of neurons
+by monitoring the oxygen content of inflowing blood.
+This provides excellent spatial resolution,
+but at a substantial temporal delay.
+In contrast, electroencephalography (EEG)
+and less commonly magnetoencephalography (MEG)
+record the weak electrical and magnetic fields generated by active neurons,
+allowing for extreme temporal accuracy in inferring neural activation,
+but with limited spatial acuity.
+
+The usefulness of these methods in studying cognitive tasks
+relies on the assumption that cognitive processes can be
+directly mapped onto the activation of specific neural regions,
+or to characteristic signals time-locked with the onset of the relevant stimuli 
+(Event Related Potentials).
+Fortunately, although this assumption
+has been questioned in a number of domains \citep[see][]{Coltheart2013},
+there appear to be clear neuroanatomical mappings
+in the case of conflict in cognition.
+Specially, the detection of conflict between processes
+is known to be strongly correlated with activation of
+the anterior cingulate cortex \citep[ACC;][]{Botvinick2004},
+while the processes of inhibiting conflicting processes
+engages the right lateral prefrontal cortex \citep[RLPFC;][]{Aron2004}.
+Thus, the logic of studying conflict using these measures is clear:
+a manipulation can be claimed to induce conflict
+if it leads to greater activation of the ACC,
+and participants who show greater RLPFC activation
+are engaged in the inhibition of a conflicting process
+\citep[see, i.e.][]{DeNeys2008}.
+
+Other biological measures exist which
+do not directly reflect neural activity,
+including galvanic skin conductance \citep{DeNeys2010, Figner2010},
+and pupil dilation \citep{Fiedler2012, Kahneman1966, Wang2011}.
+All of these measures reflect arousal of the autonomic nervous system,
+which in turn is influenced by \emph{cognitive load}
+\citep{Kahneman1966}.
+%% I don't know if there's need to say any more here. 
+However, like the neural measures review above,
+the processes measured in these paradigms
+are not the cognitive phenomena we are primarily interested,
+but epiphenomenal by-products,
+or at best physical correlates of the mental processes.
+
+An alternative to analysing these by-products
+is to look to a process which we know to precede cognition: attention.
+Although some work \citep[i.e.][]{Evans1996} has asked participants
+to explicitly indicate the locus of their attention,
+the most commonly used measure of attentional focus
+is the eye tracking paradigm.
+Eye tracking has a long history in psychological research
+(\citealp{Ball2014, Mele2012, Huey1908, Yarbus1967};
+see \citealp{Duchowski2007} for a review)
+and in its modern form typically relies on
+using a camera to record the reflection of infrared light
+off different parts of the eye.
+Popular uses of the method include
+measuring attention as part of more complex behaviours
+such as social interaction \citep[i.e.][]{Hanley2014},
+decision making \citep{Krajbich2011}
+and reasoning \citep{Ball2014},
+and in scenarios in which the low-level processes
+driving gaze fixation themselves are of interest,
+such as during reading \citep{Rayner1998},
+and visual search \citep{Treisman1980}.
+The strengths of the eye tracking paradigm are clear.
+It provides an unobtrusive measure of participants' attention,
+with impressive spatial and temporal resolution,
+across almost any cognitive task.
+In the reasoning literature, the eye tracking approach
+has been championed by Ball 
+(\citealp{Evans2010,Stupple2008,Ball2006,Ball2005,Ball2003};
+see \citealp{Ball2014} for a review)
+\aside{Again, probably too many references - I don't want to review every Ball study.},
+who presents analyses of participants' inspection time
+for various response options in complex reasoning problems.
+Surprisingly, \citet{Richardson2000} demonstrated
+that eye tracking can also reveal retrieval from memory,
+as participants look at regions of the screen
+where information was presented when recalling that information.
+Eye tracking is also a useful tool when studying conflict.
+In the popular Visual World paradigm
+\citep{Huettig2011,Allopena1998,Tanenhaus1995},
+for instance, participants uncertainty about
+the interpretation of syntactically ambiguous spoken instructions
+can be seen in the extent that they look at
+alternative objects in an onscreen display.
+%% participants hear spoken instructions
+%% to interact with objects in front of them or on a computer display.
+%% Conflict is evident when there is ambiguity in
+%% the interpretation of the start of the instructions.
+%% Given a scene with an apple, a towel,
+%% and another apple on a different towel,
+%% and hearing ``place the apple on the towel...'',
+%% participants could place the first apple onto the towel,
+%% or place the apple already on the towel elsewhere,
+%% pending further instructions.
+%% In such contexts, participants are conflicted,
+%% looking at both apples before the meaning is constrained by further instructions.
+In a similar vein, \citet{McMurray2008} asked participants to 
+categorise phonemes which were intermediate between
+simple consonants such as ``[d]'' vs. ``[g]''.
+Although participants typically report
+\emph{categorical perception} of one or other consonant,
+they looked more often at the alternative response option
+as the stimuli became more ambiguous, indicating conflict. 
+ 
+One notable shortcoming of the eye-tracking paradigm
+as a tool for studying high-level cognition, however,
+is that the connection between attention
+and the underlying processes of interest cannot always be taken for granted.
+If we find that participants look more to one option than another,
+for instance, it is difficult to tell if
+they look to this option because they wish to choose it,
+they wish to choose this option because they have looked at it,
+or some interaction of the two \citep[see][]{Krajbich2011}.
+Beyond this, eye movements typically consist of 
+a series of \emph{saccades}: rapid, discrete movements
+between one fixation point and another, in a straight line.
+For both of these reasons, researchers are required to
+construct often complex theoretical models
+as a bridge between hypothesised psychological processes
+and observed eye tracking data.
+
+The mouse tracking paradigm,
+introduced by \citet{Spivey2005},
+goes some way towards overcoming
+some of these issues inherent to eye tracking.
+In this, participants' mouse cursor movements are recorded
+as they complete forced-choice tasks,
+and analysed in order to infer the extent to which
+participants are drawn towards each response option
+over the course of a trial.
+In doing so, this paradigm appears to provide
+a window into the temporal dynamics of
+participants' developing beliefs over the course of a trial.
+It is this paradigm which I will use throughout this thesis,
+and so in the next section I provide an in-depth introduction to it.
+
+%% \citet{Ulrich1999} is actually a nice response-force based
+%% extension of this approach (also \citet{Balota1999},
+%% \citet{Abrams1991})
+
+%% Diffusion?
+
+%% Response latencies are an effective index of conflict in perceptual judgements, 
+%% and so are extensively used in studies of \emph{conflict monitoring} \citep[][]{Botvinick}. 
+%% One of the most popular such paradigms is the flanker task, 
+%% in which participants are required to respond to a centrally placed probe stimulus, 
+%% and ignore stimuli on either side of it, 
+%% which may be congruent with the probe, conflict with it, or be neutral. 
+%% The extent to which participants experience conflict, 
+%% and their ability to inhibit and resolve it, 
+%% can be inferred from the change in participants' response latencies 
+%% as these ``flankers'' are varied with much greater precision than 
+%% allowed by an analysis of their responses alone. 
+%% This paradigm also allows analysis of effects between trials: 
+%% participants are faster to resolve conflict on a trial when 
+%% the previous trial also engendered conflict, 
+%% compared to when the previous trial did not. 
+%% This is taken as evidence of transient conflict monitoring processes, 
+%% which are pre-activated when the previous trial involved a conflict, 
+%% and allow faster detection and inhibition of conflict on the current trial. 
+

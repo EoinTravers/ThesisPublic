@@ -1,0 +1,36 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../Dissertate}
+%% \documentclass{../DissertatePrint}
+%% \usepackage{comment}
+%% \excludecomment{figure}
+%% \let\endfigure\relax
+
+\begin{document}
+
+\doublespacing
+
+\setcounter{chapter}{4}
+\chapter{Descriptions vs. Statistics in Reasoning}
+\input{Intro}
+\input{Method}
+\input{Results1}
+\input{Results2}
+\input{Results3}
+\input{Results4}
+\input{Discussion}
+
+\begin{appendices}
+  %% \setcounter{secnumdepth}{0}
+  \appendixpage
+  \graphicspath{{./../Appendices/}}
+  \chapter{Bayesian model priors from Experiment 5}\label{appendix:exp5_bayes}
+  \input{./../Appendices/Exp5_bayes}
+\end{appendices}
+
+
+\bibliography{../references}
+\addcontentsline{toc}{chapter}{References}
+
+\end{document}

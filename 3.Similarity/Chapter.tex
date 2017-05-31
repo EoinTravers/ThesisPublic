@@ -1,0 +1,43 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../Dissertate}
+
+\begin{document}
+
+\doublespacing
+
+\setcounter{chapter}{2} % This chapter minus 1
+\chapter{Perceptual Similarity vs. Conceptual Knowledge in Induction}
+\input{Intro}
+\input{Method1}
+\input{Results1}
+\input{Discussion1}
+\input{Method2}
+\input{Results2}
+\input{Discussion2}
+\input{GeneralDiscussion}
+
+
+\begin{appendices}
+  %% \setcounter{secnumdepth}{0}
+  \appendixpage
+  \graphicspath{{./../Appendices/}}
+  
+  \chapter{Stimuli from Experiment 1}\label{appendix:exp1_stimuli}
+  \input{./../Appendices/Exp1_stimuli}
+
+  \chapter{Post test scores for stimuli used in Experiment 1} \label{appendix:exp1_posttest}
+  \input{./../Appendices/Exp1_posttest}
+
+  \chapter{Properties used in Experiment 2}\label{appendix:exp2_properties}
+  \input{./../Appendices/Exp2_properties}
+\end{appendices}
+
+
+\bibliography{../references}
+\addcontentsline{toc}{chapter}{References}
+
+
+
+\end{document}

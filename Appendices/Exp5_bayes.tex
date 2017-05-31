@@ -1,0 +1,37 @@
+\begin{equation}
+  \begin{split}
+    log(\ rt_{(p,\ d)}\ ) &=  (\Alpha + \alpha_p + \alpha_d)
+    + Condition * \Beta + \epsilon \\
+    \Alpha &\sim Uniform(0, 8.5) \\
+    \Beta &\sim Normal(-.69, .69) \\
+    \alpha_p &\sim Normal(0, \sigma_{\alpha_p}) \\
+    \alpha_d &\sim Normal(0, \sigma_{\alpha_d}) \\
+    \sigma^2_{\alpha_P} &\sim Cauchy(0, 10); \sigma^2_{\alpha_P} > 0 \\
+    \sigma^2_{\alpha_D} &\sim Cauchy(0, 10); \sigma^2_{\alpha_D} > 0
+  \end{split}
+\end{equation}
+
+This model predicts log response time ($rt$)
+for participants $p$, reasoning about description $d$.
+The model parameters are the overall intercept term $\Alpha$,
+representing the log of the average response time when
+the base rates agreed with the description,
+participant $p$'s offset from this intercept, $\alpha_p$,
+and description $d$'s offset, $\alpha_d$
+--- both of which were normally distributed with a mean of 0,
+the regression weight $\Beta$,
+representing the log of the percentage increase in $rt$ when the base rate disagrees,
+and the error term $\epsilon$.
+$Condition$ is 0 for trials where the cues agree,
+and 1 where they disagree.
+A uniform prior was  set on $\Alpha$ so that
+all baseline $rt$s from 1 to 5,000 msec were equally likely.
+$\Beta$ was give a broad normal prior with mean 0 and SD .69,
+meaning that, a priori, I was 95\% certain that
+response times would be between 5 times slower and 5 times faster
+than those when the cues agreed.
+The variance parameters for the
+by-participant and by-description differences in the intercept
+had uninformative half-Cauchy distributions,
+indicating that I could not specify in advance
+how much variance there would be \citep{Gelman2006b}.

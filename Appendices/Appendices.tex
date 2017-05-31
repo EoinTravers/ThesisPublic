@@ -1,0 +1,31 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{../Dissertate}
+
+\begin{document}
+
+\doublespacing
+
+\begin{appendices}
+  %% \chapter{Appendices}
+  \setcounter{secnumdepth}{0}
+  
+  \graphicspath{{./../Appendices/}}
+
+  \clearpage
+  \section{Appendix B: Stimuli from Experiment 1} \label{appendix:exp1_stimuli}
+  \input{./../Appendices/Exp1_stimuli}
+
+  \clearpage
+  \section{Appendix C: Post test scores for stimuli used in Experiment 1} \label{appendix:exp1_posttest}
+  \input{./../Appendices/Exp1_posttest}
+\end{appendices}
+
+
+\bibliography{../references}
+\addcontentsline{toc}{chapter}{References}
+
+
+
+\end{document}

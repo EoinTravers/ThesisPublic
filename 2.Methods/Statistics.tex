@@ -1,0 +1,217 @@
+
+\section{Statistical Analyses}\label{sec:statistics}
+
+Finally, I will use the remainder of this chapter
+to outline some of the statistical methods used in this thesis.
+Again, by covering this material here,
+I hope to avoid repeating it throughout the later chapters.
+
+\subsection{Mixed Effects Models}\label{subsec:statistics-lme}
+
+Throughout this thesis, I use \emph{mixed effects} regression models
+\citep{Gelman2007, Baayen2008}
+--- otherwise known as linear or logistic mixed models (LMMs), hierarchical regression,
+multilevel regression, and random effects regression ---
+to analyse my data.
+I will not provide a full tutorial on these methods here
+\citep[see instead][]{Gelman2007, Baayen2008,Quene2008,Bates2015a}.
+However, in this section I will explain my motivation in using these approaches,
+and provide sufficient introduction so that readers
+can follow the results presented later.
+Unless otherwise stated, all analyses were conducted
+using the R programming language \citep{RCoreTeam2015},
+and mixed effects models were fit using the lme4 package \citep{Bates2015a}.
+
+A typical psychology experiment records
+several data points from each participant, one per trial.
+For illustration, I will use the case of an experiment where
+participants $p_1, p_2, ..., p_P$  perform a task in two conditions, $c_1$ and $c_2$,
+and their response times $rt$ are recorded on each trial.
+In a classical analyses, we would calculate the mean $rt$
+for each participant in each condition,
+and compare each participants' means from $c_1$
+to those from $c_2$ using Student's t test.
+Furthermore, there will be individual differences in $rt$ in general,
+as some participants generally respond faster than others ---
+this data is clustered within participants, in other words.
+Therefore, we can improve our statistical power
+by using a paired t test,
+which accounts for these individual differences in baseline $rt$.
+
+However, aggregating data in this way is not always appropriate
+\citep[see][]{Baayen2008}.
+Firstly, it discards a great deal of information,
+and as a result the statistical power of our tests can be diminished.
+Secondly, in averaging over multiple stimuli,
+we ignore any systematic clustering by stimuli (or items) in our data:
+some stimuli may produce faster responses than others in general, for example.
+In linguistics, where items usually correspond to specific words or phrases,
+this issue is traditionally addressed by running two analyses,
+one aggregating by participant, and one by item,
+and reporting the results of both \citep{Clark1973}.
+
+A more serious problem with aggregation
+is that it can involve unbalanced data.
+In many analyses, we only include trials which meet certain criteria,
+for instance only analysing response times for correct responses.
+In reasoning research, where participants can often produce many different inferences,
+this is particularly common.
+If one participant gives few correct responses,
+their average response time will be estimated from only a few trials,
+and so will be a noisy measure.
+In the classical analysis, however,
+this datum is given as much weighting
+as an average response time from a participant
+who responded correctly on every trial.
+When, as often is the case, there is some relationship between,
+for instance, accuracy and response times,
+this can cause systematic biases in our analysis,
+hiding true effects and potentially creating spurious ones \citep{Baayen2008}.
+
+Aggregation is also inappropriate
+when the dependent variable is not a continuous quantity such as $rt$.
+Most notably, when analysing proportions and percentages (e.g. accuracy),
+aggregate data systematically violate the assumptions of t tests/ANOVA,
+in a way which cannot be remedied by transforming the data \citep{Warton2010}.
+These issues with aggregation can be avoided, however,
+by fitting regression models to the data from each trial, rather than the aggregates.
+
+As every undergraduate psychology student is taught,
+the standard (unpaired) t test,
+like the between-subjects ANOVA and many other classical tests,
+is a special case of linear regression.
+The regression equivalent of the unpaired t test for this experiment is given as
+
+\begin{equation}
+  \label{eq:lm1}
+  rt_i = \alpha + \beta * Condition_i + \epsilon
+\end{equation}
+
+$rt_i$ is the $rt$ on trial $i$, and is the sum of
+$\alpha$ (the mean $rt$ in baseline condition $c_1$),
+$Condition_i$ (a dummy variable representing the condition on trial $i$,
+set to $0$ to represent $c_1$ and $1$ to represent $c_2$),
+$\beta$ (the difference in $rt$ between the conditions),
+and the normally distributed error term $\epsilon$.
+
+However, like the unpaired t test,
+this model does not account for individual differences in $rt$.
+To do this, we can extend Equation~\ref{eq:lm1}
+so that the intercept $\alpha$ is allowed to differ for each participant.
+This is, in effect, a within-subjects regression model.
+The result is a \emph{mixed effects model},
+in that it includes both \emph{fixed effects} ---
+the overall intercept term $\alpha$,
+and the overall effect of condition $\beta$ ---
+and \emph{random effects} ---
+the individual differences around $\alpha$.
+Such a model is said to have \emph{random intercepts for each participant}.
+
+Mixed models are even more flexible than this, however.
+We may also want to allow for differences between each item in $rt$.
+This can be done by including \emph{crossed random intercepts} \citep{Baayen2008}
+for both participants and items,
+allowing $\alpha$ to vary for each participant, and for each item,
+while still calculating the overall intercept term.
+These random effects are not restricted to the intercept either.
+The $\beta$ term reflects the difference between the two conditions.
+It may be that this difference is greater for some participants than others,
+or greater for some items than others, if the same items are used in both conditions.
+Therefore, we can also add random effects of condition for each participant,
+for each condition, or for both, as desired.
+
+\subsection{What Random Effects?}\label{subsec:statistics-random}
+
+At this point, it should be noted that there is still active debate
+as to what random effects should be included in a model.
+\citet{Barr2013} argue for the use of \emph{maximal} random effects structures,
+where random effects are included wherever the design of the experiment allows.
+However, even with simple designs such a model cannot always be fit in practice,
+as the amount of data required increases exponentially with the number of parameters to be fit.
+Instead, \citet{Bates2015} advise using \emph{parsimonious} models ---
+fitting the maximal model, and then removing the parameters
+that account for least variation as necessary until the model can be fit.
+It is this approach I have taken in this thesis,
+and in each results section I specify the random effects structure used for the analysis.
+
+
+\subsection{Data Transformations and Binary Outcomes}\label{subsec:statistics-tranform}
+
+Being regression models, mixed effects models
+can also make full use of the data transformations
+and link functions used in regression modelling.
+In this thesis, I use two such tools.
+First, it is expected that latency data,
+such as response times, movement initiation times,
+and in Chapter 5, reading times,
+will have a log-normal distribution:
+a distribution like a normal distribution
+that has been log-transformed.
+Therefore, to analyse these measures I simply log-transform them,
+and apply a standard linear mixed effects model.
+Second, several of the measures I analyse,
+including reasoning accuracy,
+and the number of reversal trajectories per condition, are binary proportions.
+These can be analysed by using logistic, rather than linear, mixed effects models.
+
+\subsection{Categorical Predictors}\label{subsec:statistics-catgorical}
+
+
+Just as the ANOVA is a special case of linear regression,
+mixed effects models can be used
+to evaluate the main effect of a categorical predictor
+in these complex repeated-measures designs.
+In the classical ANOVA, we use the Sum of Squares%
+\footnote{More accurately, the sum of the squared deviations from the model fit.}
+of models fitted with and without that predictor to  compute an F statistic,
+which reflects the main effect of that predictor.
+However, with mixed effects the degrees of freedom (DFs) for this F statistic
+are not easily defined, and so it is difficult to calculate the appropriate p value.
+In mixed effects models, we therefore compare
+the deviance of models ($-2$ x their log-likelihoods)
+fitted with and without the predictor,
+and use a chi-squared test,
+with DF corresponding to the number of terms added by larger model
+(adding a categorical predictor with three levels adds 2 DF)
+to find a p value for that predictor's main effect.
+
+\subsection{Reporting}\label{subsec:statistics-reporting}
+
+Of course, the output of mixed effects regression models
+differs from that of a simple t test.
+In most analyses, I will be investigating the effect of one or more
+binary variables, such as condition, on the dependent variable.
+This is quantified by the regression slope ($\beta$) for that variable,
+and so for each comparison I will typically report
+the means and standard deviations in each condition,
+$\beta$ and its 95\% confidence intervals,
+reflecting the estimated difference between the conditions,
+and finally a t test comparing $\beta$ to 0.%
+\footnote{
+  In linear regression, the DF for this test
+  would simply be the number of data points minus the number of variables.
+  When random effects are included, it is not possible to define the DF in this way.
+  In this thesis, I  take the conservative approach
+  of using Satterthwaite’s approximation \citep{Satterthwaite1946} for the DF,
+  as implemented in the lmerTest \citep{Kuznetsova2015} package for R.
+  For logistic mixed models, the t test is replaced by a z test,
+  and so it is not necessary to calculate DF.
+}
+
+For analyses where the dependent variable was log-transformed (e.g. response times),
+the exponentiated regression weight $e^{\beta}$ is reported instead.
+This indicates the percentage change in the dependent variable
+between the conditions.
+For instance, if the mean response time in condition $c_1$ is 1,000 msec,
+and the effect of condition is $e^{\beta} = 110\%$,
+response times in condition $c_2$ are
+10\% greater than those of condition $c_1$, for an average of 1,100 msec.
+$e^{\beta}$ is also reported for the logistic analyses,
+where it reflects the multiplicative change in the odds of the outcome in question.
+For example, if participants
+gave the wrong response on 20\% of trials in condition $c_1$,
+the odds ratio of wrong to right responses in this condition is $\frac{20\%}{80\%} = 0.25$.
+An effect of $e^{\beta} = 1.5$ would mean
+the odds were one and a half times greater of doing so in condition $c_2$;
+odds of $0.25 * 1.5 = 0.375$,
+which correspond to a probability of $\frac{0.375}{1 + 0.373} = 27.3\%$.

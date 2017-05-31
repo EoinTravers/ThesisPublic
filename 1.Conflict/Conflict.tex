@@ -1,0 +1,398 @@
+%%% Local Variables: ***
+%%% mode:latex ***
+%%% TeX-master: "Chapter.tex"  ***
+%%% End: ***
+
+\section{Conflict in Cognition}
+\label{sec:chapter1-conflict}
+
+At this stage, I have covered
+the specific cases  of conflict in reasoning
+that I focus on in this thesis.
+Reasoning, however, is not the only cognitive domain
+in which conflict occurs,
+and the majority of previous research on conflict in cognition
+focuses on simpler cognitive tasks.
+Of course, high-level cognition
+is built upon the operation of these lower level processes \citep{Barsalou2007},
+and so understanding conflict in these simpler processes
+may advance our understanding of conflict in reasoning.
+
+%% Within a process
+%% This thesis will not delve into conflict at the biological level.
+%% Therefore, the simplest form of conflict I will discuss
+%% is that which occurs within a single low-level cognitive process.
+%% It has been proposed argued extensively that
+%% some kinds of cognitive processes are \emph{associative},
+%% that is, they rely on unstructured statistical relationships such as
+%% similarity and temporal or spatial contiguity,
+%% rather than explicit rules \citep{Sloman1996}.
+%% Such processes have variously been referred to as
+%% cognitive modules \citep{Fodor1983},
+%% implicit processes \citep{Greenwald1995,Evans1996},
+%% autonomous processes \citep{Stanovich2009},
+%% and automatic processes \citep{Schneider1977}, % Talking about learned processes
+%% amongst other terms.
+
+\subsection{A Mind Divided}
+\label{subsec:chapter1-conflict-divided}
+
+The simplest form of conflict I will consider
+occurs \emph{within} individual low-level cognitive processes.%
+\footnote{
+  Conflict occurs in the brain at yet lower levels than this,
+  for instance when a single neuron receives
+  both excitatory and inhibitory signals,
+  and must \emph{decide} whether or not to fire.
+  I limit this discussion to cognitive conflict for brevity.
+  }
+Many of these processes perform what can be broadly defined as categorisation,
+for instance categorising aural stimuli as words
+\citep{McClelland1986,Norris1994}.
+Such processes are commonly
+modelled using artificial neural networks,
+otherwise known as connectionist models
+\citep{McClelland1986, Rogers2004, Kruschke1992}.
+These represent mental states using patterns of activation
+across a network of connected neuron-like nodes.
+The connections between nodes,
+or the influence the activation of each node has on its neighbours,
+provide a form of long-term information storage.
+The behaviour of a network is therefore dictated
+both by the long-term patterns stored in its connection weights,
+and by the external activation of its \emph{input nodes}.
+These artificial networks, and the real ones in the brain,
+can be thought of as mapping
+specific patterns of input to their corresponding outputs,
+such as mapping phonological or visual patterns to words in the mental lexicon.
+Presented with ambiguous inputs, such as a sound intermediate between two common words,
+such networks may be forced to produce either
+the output that most closely corresponds to that input,
+or an output that compromises between the two learned patterns.
+Given that conflict within such processes
+can often be resolved with a compromise,
+I believe the term \emph{competition}
+accurately describes this form of conflict.
+
+More advanced \emph{recurrent} networks
+\citep{Elman1990}               % Also Jordan, Boltzman, etc.
+have patterns of activation that develop over time,
+with activation at time $t$ influenced by both the network's inputs,
+and its previous activation, at time $t - 1$.
+Crucially, the state of such networks can develop over time,
+so that when presented with input that partially supports multiple outputs
+-- a sound intermediate between two words, such as ``pin'' and ``bin'', for instance --
+the network will initially produce an output pattern
+intermediate between the two,
+before settling over time into a \emph{steady state}
+consistent with one or other word,
+by a process of \emph{recurrent competition} \citep{Spivey2007}.
+This competition is thought to resolve itself internally,
+without the need for top-down control,
+although it is known that its current state
+is available to other cognitive process and to the motor system
+\citep[i.e.][]{Spivey2005}.
+The dynamics of conflict and competition in such processes
+have been extensively studied from a number of perspectives,
+including as sequential sampling models, % Cites!
+and non-linear dynamical systems
+\citep{Spivey2006, Spivey2007,Beer2000,Port1995,Freeman2011d}.
+However, few theories of reasoning are restricted
+to the operation of a single such process \citep[but see][]{Rogers2004},
+and so this particular kind of conflict will not be the focus of this thesis.
+I will, however, revisit this idea in Chapter 7.
+
+%% Between processes
+Conflict can also occur between these low-level processes,
+The paradigmatic example of this conflict is the Stroop task \citep{Stroop1935}.
+In this, participants are shown colour names,
+printed in colours that may agree, or disagree with the printed word,
+and asked to state the colour of the ink.
+Participants struggle on trials in which the ink colour and printed word differ,
+making more mistakes and responding more slowly.
+As the process of reading the printed work is
+stronger that of identifying its colour ---
+it provides the \emph{prepotent response} ---
+top-down control processes (discussed below)
+are required to successfully complete this task,
+specifically, the prepotent response must be \emph{inhibited}
+in order for the weaker response to be produced.
+% De Neys thinks that reasoning looks like this.
+
+In some cases, this conflict may be resolved as a compromise,
+similar to competition within a single low-level processes.
+In the McGurk effect \citep{Mcgurk1976},
+participants watching a video of a person pronouncing the syllable {[}ga{]},
+while hearing the syllable {[}ba{]},
+report perceiving a syllable phonologically intermediate between the two, {[}da{]},
+indicating that the outputs of both processes 
+were combined to form a conscious perception.
+In other situations, however, such compromise is not possible.
+
+So far, I have described these conflicting processes
+from a bottom-up perspective:
+multiple processes, or cues within a single process,
+are set in conflict with each other,
+and therefore compete until one or other outcome occurs,
+or a compromise is reached.
+From this point of view, it would appear that we as conscious agents
+have much control over our mental lives,
+but rather we are at the mercy of these
+conflicting autonomous processes.
+In the past, researchers in a number of traditions
+have argued that this is in fact the case,
+and that our subjective feelings of conscious control
+are illusionary, or irrelevant
+\citep[e.g.][]{Skinner1965,Gibson1986}
+In mainstream psychology and neuroscience, however,
+it is usually accepted that \emph{we} are capable of
+monitoring, directing, controlling, and inhibiting
+these low-level processes in the service of our goals,
+a set of abilities known as \emph{cognitive control}.
+Cognitive control plays an important role in theories of conflict in cognition,
+and has recently begun to be addressed in theories of reasoning as well \citep{DeNeys2012}.
+In the next section, I will outline some aspects of
+the literature on control relevant to this thesis.
+
+
+\subsection{Cognitive Control}
+\label{subsec:chapter1-conflict-control}
+
+The idea that some cognitive processes are involved
+in the monitoring and regulation of others is a pervasive one
+throughout both psychology,
+where they are commonly known as executive functions, or the central executive,
+and neuroscience,
+where they are also referred to as cognitive control
+\citep[see, e.g.,][]{Diamond2013,Botvinick2014,
+  Botvinick2001,Munakata2011}.
+I use term ``cognitive control'' here,
+as it better captures the full range of processes under consideration.
+Core control functions include
+directing cognitive processes to achieve higher-order goals,
+monitoring the performance and accuracy of other processes,
+%% (including high-level \emph{metacognition}),
+detecting when processes come into conflict,
+and inhibiting and controlling
+automatically activated cognitive processes and representations
+and automatically executed actions.
+While all of these functions undoubtedly play a role in reasoning,
+of particular relevance in this thesis
+are the detection of conflict, and inhibitory control.
+
+First, the detection of conflict.
+Above, I discussed the dual process conflict monitoring account
+put forwards by De Neys \citep[e.g.][]{DeNeys2008a}.
+This is an extension of the more general \emph{conflict monitoring theory}
+\citep{Botvinick2014,Shenhav2013,Botvinick2004a,Botvinick2001,Yeung2004}.
+According to this account,
+the Anterior Cingulate Cortex (ACC),
+a deep cortical region adjacent to the frontal and parietal lobes,
+receives signals from neural regions
+performing many other cognitive processes,
+and automatically detects when these signals conflict.
+Consistent with this theory, the ACC is known to activate
+a) during \emph{response inhibition} tasks such as the Stroop task,
+where participants must prevent themselves from
+responding by reading the word
+%% where irrelevant information
+%% that would otherwise drive responding must be ignored;
+b) for \emph{under-determined responding},
+where the available information supports multiple possible responses,
+such as in the stem completion task \citep{Palmer2001}; and
+c) for errors on speeded tasks
+where participants accidentally give
+the wrong response despite knowing the correct one.
+When conflict is detected,
+the ACC allocates more attentional/inhibitory resources
+to the processes in question,
+in an attempt to resolve the conflict in a way
+consistent with higher-order goals.
+In line with this, ACC activation on conflict trials
+predicts diminished conflict on the following trial \citep{Rabbitt1966}:
+participants experience conflict,
+and so allocate more control resources to the task,
+and therefore are better able to resolve this conflict on the next trial.
+
+Crucially, this conflict detection processes is modelled
+using an artificial neural network \citep{Yeung2004},
+whereby conflict is detected automatically
+as a consequence of the meeting of various neural pathways in the ACC,
+rather than through explicit conscious monitoring.
+\citet{Shea2014c} contrast this implicit, automatic form of cognitive monitoring
+with more effortful, explicit metacognition
+in their dual system account of metacognitive control.
+Their \emph{Type 1 metacognition} is
+the implicit, automatic representation of
+the states of cognitive processes by other processes,
+such as the conflict detection of the ACC,
+or a process which monitors the variability
+or uncertainty of another \citep[see, e.g.,][]{Drugowitsch2012}.
+Their \emph{Type 2 metacognition} is the conscious,
+effortful reflection on our own mental states
+for which the term metacognition is traditionally reserved.
+In effect, they argue that
+some cognitive control processes are examples of implicit metacognition,
+and that traditional metacognition can be considered
+an explicit form of cognitive control.
+They further suggest that Type 2 metacognition evolved
+as a means for people to communicate their metacognitive states,
+and to facilitate group decision making \citep[see also][]{Mercier2011}.
+
+The relevance of the conflict monitoring theory
+to reasoning research should be clear at this point,
+and indeed many aspects of it are incorporated into
+more recent intuitive logic accounts \citep[e.g.][]{DeNeys2012,Pennycook2015};
+generally, people can easily detect
+when multiple responses come into conflict during cognition.
+The dual systems account of metacognition proposed by \citet{Shea2014c},
+however, has received less attention in the reasoning literature,
+but maps clearly onto existing dual process accounts.
+In particular, while classical default-interventionist theories
+would attribute the detection of biases in heuristic reasoning
+to explicit Type 2 metacognition,
+it is the contention of the intuitive logic theory
+that this detection is instead achieved by Type 1 metacognition.
+
+Of course, once conflict has been detected,
+additional control processes are required
+to inhibit unwanted processes, mental representations, and actions.
+This requires the inhibitory control processes \citep{Diamond2013},
+specifically \emph{cognitive inhibition}
+--- the inhibition of cognitive processes or mental representations --
+and response inhibitions
+--- the inhibition of inappropriate actions themselves.
+These inhibitory processes have long been associated with
+the prefrontal cortex (PFC), adjacent to the ACC.
+In an influential account, \citet{Miller2001} propose that
+inhibitory control is achieved by the PFC
+by sending biasing signals to regions implementing other processes,
+which affect the ongoing competition in those regions
+to reach the conclusions consistent with higher-level goals.
+Therefore, a loop is formed,
+from cortical regions implementing basic cognitive processes
+that come into conflict,
+to the ACC where conflict is detected,
+to the PFC, which in turn influences the conflicting cortical processes
+\citep{Yeung2004}.
+While this thesis does not test theories of executive control,
+it seems apparent that they must play a role
+in conflict during reasoning.
+I will return to these processes in Chapter 7.
+
+
+%% The executive functions (EFs) are cogntive processes
+%% that monitor and control other processes \citep{Diamond2013} \aside{Possibly need more references here}
+%% and integrate them as part of high-level cognition.
+%% For our purposes, two executive functions in particular are relevant:
+%% inhibition, which blocks or overrides other processes,
+%% and monitoring processes, which represent the state of other processes,
+%% and identify when inhibition or other EFs are required.
+
+%% % Inhibition
+%% Inhibitory control consists of processes that
+%% ``{[}control{]} one's attention, behaviour, thoughts, and/or emotions
+%% to override a strong internal predisposition or external lure'' \citep{Diamond2013},
+%% and can be further divided into response inhibition,
+%% (the ability to hold back prepotent responses),
+%% cognitive inhibition
+%% (preventing unwanted mental representations from entering Working Memory),
+%% and interference control (the allocation of attention).
+%% In our framework, response inhibition is required
+%% when conflict arises between
+%% competing associative processes,
+%% or between associative process and Working Memory.
+%% Cognitive inhibition, on the other hand, 
+%% serves as a gatekeeper for Working Memory,
+%% and so plays a focal role in reasoning
+%% when multiple representations are available.
+%% \aside{There is more I can include here, including neurological stuff,
+%%   but it's probably not necessary.
+%%   I also had a section about cognitive flexibility here, in
+%%   the previous draft, although it's might not be relevant. }
+
+%% % Conflict monitoring
+%% Although inhibitory control provides us a means of 
+%% resolving conflict between cognitive processes,
+%% we also need some way of knowing which processes
+%% need to be inhibited, and when.
+%% In classical theories of Executive Control \citep[e.g.][]{Baddeley1974},
+%% this role was filled by a \emph{central executive},
+%% a system that directed and monitored the other ``slave'' systems.
+%% This mechanism has been criticised, however, as a homunculus:
+%% a mind-within-the-mind that supposedly explains the phenomena,
+%% but hasn't itself been explained \citep{Parkin1998}.
+%% The Conflict Monitoring theory \citep{Botvinick2004a, Botvinick2014, Yeung2004}
+%% is an attempt to eliminate this homunculus from cognitive control.
+%% Unlike the central executive,
+%% the actual mechanisms underlying the conflict monitoring account
+%% can be specified in connectionist networks \citep[see][]{Yeung2004},
+%% in which conflict detection occurs as 
+%% an emergent consequence of the layout of the network,
+%% rather than relying on an anthropomorphic controller.
+%% It proposes that the dorsal Anterior Cingulate Cortex (ACC)
+%% serves as a general purpose conflict monitoring system,
+%% responding to the cuing of conflicting responses by competing cognitive processes.
+
+%% Consistent with this theory, ACC activation correlates with known sources of conflict,
+%% in a) \emph{response inhibition} tasks such as the Stroop task,
+%% in which irrelevant information that would otherwise drive responding must be ignored;
+%% b) \emph{under-determined responding},
+%% where the available information supports multiple possible responses,
+%% such as the stem completion task \citep{Palmer2001}; and
+%% c) errors on speeded tasks
+%% in which participants are aware of the correct response,
+%% but fail to produce it.
+%% According to the conflict monitoring theory,
+%% the role of the ACC is to activate the necessary executive control processes,
+%% localised to adjoining prefrontal regions, in response to conflict.
+%% \aside{Need to include references for these findings
+%%   (can be found in \citet{Botvinick2014,Botvinick2004})}
+%% A notable finding in support of this idea is that
+%% experimental trials that elicit conflict,
+%% either because participants responded incorrectly,
+%% or because of incongruency in the stimuli presented,
+%% lead to greater activation of control processes,
+%% measured both behaviourally, and by means of EEG/fMRI,
+%% and additionally that this activation of control processes
+%% is correlated with the strength of ACC activation on the previous trial.
+%% %% \aside{Cite a few}
+%% % I should cite more sources here. I will see what's cited in
+%% % Botvinick et al (2004).  Also, could talk about De Neys' work here,
+%% % but I think it's more approparite later, after dual process theories
+%% % have been introduced.
+
+%% \aside{Put Shea's work here?}
+
+%% %% Why reasoning is different
+%% However, there is something that sets the study of conflict in
+%% high-level reasoning and decision making
+%% apart from that of conflict in the lower-level processes.
+%% In high-level cognition, we draw upon a set of flexible,
+%% domain general cognitive processes,
+%% commonly known as the Working Memory system \citep[WM;][]{Baddeley1974, Baddeley1992}.
+%% WM is capable of storing, manipulating, and updating
+%% both perceptual and abstract information,
+%% and is thought to be essential to flexible, goal-directed
+%% high-level processes such as reasoning.
+
+%% WM, thought to be strongly localised within the prefrontal cortex (PFC),
+%% and the dorsolateral prefrontal cortex (dPFC) in particular \citep{Kane2002},
+%% is capable of storing, manipulating, and updating both perceptual and abstract information,
+%% is usually held to underlie uniquely human skills such as abstract, high-level thinking.
+%% Importantly, while WM is capable of more flexible, abstract operations
+%% than the associative processes mentioned above,
+%% unlike them its capacity is extremely limited:
+%% only a small number of \emph{objects} can be stored in WM at any one time
+%% \citep{Miller1956}. \aside{Cite more recent sources?}
+%% Similarly, WM is thought to be capable of representing only
+%% a single representation of the world at any time \citep{Evans2006},
+%% or, in other words, we cannot consider two contradictory possibilities at once.
+
+%% WM is also at the heart of so-called Type 2 processes in dual process theories,
+%% where reliance on WM has been proposed as a defining feature of such processes
+%% \citep[see][]{Evans2013aStanovich2012}.
+%% In the next section, I discuss the role of conflict
+%% in dual process accounts of reasoning.
+
+

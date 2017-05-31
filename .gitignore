@@ -34,14 +34,12 @@
 *.ong
 *.out
 *.pdf
-*.png
 *.synctex.gz
 *.tmp
 *.toc
 *.ttt
 *.xref    
 *.bak
-*.md
 *.gv
 *.txt
 tmp.*
